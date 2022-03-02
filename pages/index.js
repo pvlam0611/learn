@@ -2,15 +2,22 @@ import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 
 
 export default function Home() {
-  return (
+  const router = useRouter();
+  const handleNavigate = () => {
+    router.push('blog/1')
+  }
+
+return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      <button onClick={handleNavigate}>Click me</button>
         <section className={utilStyles.headingMd}>
         <Link href="/posts/first-post">
         <img src="/images/defend_Adam_Vilimek_shutterstock.webp">
